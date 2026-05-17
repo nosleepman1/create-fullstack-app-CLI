@@ -23,33 +23,91 @@ npx create-fullstack-app-cli
 
 ---
 
-## CLI example
-✔ Project name? → my-app
+## CLI Example
 
-✔ Frontend?
-  React
-  Angular
+```bash
+? Project name: my-app
 
-✔ Backend?
-  NestJS
-  Express
-  AdonisJS
+? Choose your frontend
+[0] React
+[1] Angular
 
-✔ Database?
-  PostgreSQL
-  MySQL
-  MongoDB
-  SQLite
+✔ Selected: React
 
-  ---
+? Choose your backend
+[0] NestJS
+[1] Express
+[2] AdonisJS
 
-  ## Generated structure
-  my-app/
+✔ Selected: NestJS
+
+? Choose your database
+[0] PostgreSQL
+[1] MySQL
+[2] MongoDB
+[3] SQLite
+
+✔ Selected: PostgreSQL
+```
+
+---
+
+## Generated Structure
+
+```bash
+my-app/
 ├── frontend/
+│   ├── src/
+│   ├── Dockerfile
+│   └── nginx.conf
+│
 ├── backend/
+│   ├── src/
+│   └── Dockerfile
+│
 ├── docker-compose.yml
 ├── docker-compose.dev.yml
 ├── .github/workflows/
 ├── .env.example
 ├── .gitignore
 └── README.md
+```
+
+---
+
+## Example Stack
+
+```bash
+Frontend  → React
+Backend   → NestJS
+Database  → PostgreSQL
+```
+
+Generated automatically with:
+
+- Docker setup
+- Authentication
+- CI/CD workflow
+- Production configuration
+
+---
+
+## Development
+
+```bash
+docker compose -f docker-compose.dev.yml up
+```
+
+---
+
+## Production
+
+```bash
+docker compose up --build
+```
+
+---
+
+## License
+
+MIT
