@@ -1,17 +1,55 @@
-# create-fullstack-app-CLI
-One command to generate a production-ready fullstack monorepo. Pick your frontend (React/Angular), backend (NestJS/Express/AdonisJS), and database (PostgreSQL/MySQL/MongoDB/SQLite) — auth, Docker, and GitHub Actions included.
+# create-fullstack-app-cli
 
-## Structure 
-mon-projet/
-├── frontend/          # React ou Angular
-│   ├── Dockerfile     # Multi-stage build → Nginx
-│   ├── nginx.conf     # Proxy /api → backend
-│   └── src/
-├── backend/           # Nest / Adonis / Express
-│   ├── Dockerfile     # Multi-stage build Node.js
-│   └── src/
-├── docker-compose.yml         # Production
-├── docker-compose.dev.yml     # Dev hot-reload
+Create a production-ready fullstack monorepo with one command.
+
+## Features
+
+- Interactive CLI
+- React or Angular frontend
+- NestJS, Express, or AdonisJS backend
+- PostgreSQL, MySQL, MongoDB, or SQLite
+- Docker & Docker Compose
+- GitHub Actions CI/CD
+- Authentication starter
+- Monorepo architecture
+
+---
+
+## Usage
+
+```bash
+npx create-fullstack-app-cli
+```
+
+---
+
+## CLI example
+✔ Project name? → my-app
+
+✔ Frontend?
+  React
+  Angular
+
+✔ Backend?
+  NestJS
+  Express
+  AdonisJS
+
+✔ Database?
+  PostgreSQL
+  MySQL
+  MongoDB
+  SQLite
+
+  ---
+
+  ## Generated structure
+  my-app/
+├── frontend/
+├── backend/
+├── docker-compose.yml
+├── docker-compose.dev.yml
+├── .github/workflows/
 ├── .env.example
 ├── .gitignore
 └── README.md
