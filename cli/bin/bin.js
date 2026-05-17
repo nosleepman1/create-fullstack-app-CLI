@@ -3,31 +3,24 @@
 const fs = require('fs-extra');
 const path = require('path');
 const { execSync } = require('child_process');
+const { questions } = require('./questions');
 
 async function createApp() {
   const inquirer = (await import('inquirer')).default;
   
-  const answers = await inquirer.prompt([
-    {
-      type: 'input',
-      name: 'name',
-      message: 'Quel est le nom de votre projet?',
-      default: 'my-react-app'
-    }
-  ]);
+  const answers = await inquirer.prompt(questions);
 
-  const projectName = answers.name;
   const templateDir = path.join(__dirname, '..', 'templates', 'react-app');
-  const targetDir = path.join(process.cwd(), projectName);
+  const targetDir = path.join(process.cwd(), answers.projectName);
 
-  console.log(`Création de ${projectName}...`);
+  console.log(`Project is creating ${answers.projectName}...`);
 
   try {
     await fs.copy(templateDir, targetDir);
-    console.log(`Projet créé avec succès dans ${targetDir}`);
+    console.log(`Project created successfully in ${targetDir}`);
     
     
-    console.log('Installation des dépendances...');
+    console.log('Installing dependencies...');
     process.chdir(targetDir);
     execSync('npm install', { stdio: 'inherit' });
     
