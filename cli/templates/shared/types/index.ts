@@ -16,3 +16,14 @@ export interface ErrorResponse {
   message: string;
   errors?: any[];
 }
+
+export interface RegisterDto {
+  name: string;
+  email: string;
+  password?: string;
+}
+
+export interface LoginDto {
+  email: string;
+  password?: string;
+}
