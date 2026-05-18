@@ -2,11 +2,13 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import { Request, Response, NextFunction } from "express";
 
-
 dotenv.config();
 
-export const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
+export interface AuthRequest extends Request {
+    user?: any;
+}
 
+export const authMiddleware = (req: AuthRequest, res: Response, next: NextFunction) => {
     const authHeader = req.headers.authorization;
     const JWT_SECRET = process.env.JWT_SECRET;
 
@@ -14,8 +16,12 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
         return res.status(401).json({ message: "Unauthorized" });
     }
 
-    const token = authHeader.split(" ")[1];
-    const decodedToken = jwt.verify(token, JWT_SECRET);
-    req.user = decodedToken;
-    next();
+    try {
+        const token = authHeader.split(" ")[1];
+        const decodedToken = jwt.verify(token, JWT_SECRET);
+        req.user = decodedToken;
+        next();
+    } catch (error) {
+        return res.status(401).json({ message: "Invalid token" });
+    }
 }
