@@ -57,6 +57,47 @@ async function createApp() {
     const envContent = `VITE_API_URL=http://localhost:3000/api/v1\n`;
     await fs.writeFile(path.join(frontendDir, '.env'), envContent);
 
+    // Setup GitHub Actions CI/CD
+    console.log('🐙 Generating GitHub Actions CI/CD...');
+    const githubDir = path.join(targetDir, '.github', 'workflows');
+    await fs.ensureDir(githubDir);
+    const ciContent = `name: Fullstack CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        
+    - name: Install Backend Dependencies
+      working-directory: ./backend
+      run: npm ci || npm install
+      
+    - name: Build Backend
+      working-directory: ./backend
+      run: npm run build --if-present
+      
+    - name: Install Frontend Dependencies
+      working-directory: ./frontend
+      run: npm ci || npm install
+      
+    - name: Build Frontend
+      working-directory: ./frontend
+      run: npm run build --if-present
+`;
+    await fs.writeFile(path.join(githubDir, 'ci.yml'), ciContent);
+
     console.log('\n⚙️ Installing dependencies... This may take a few minutes.');
     
     console.log('📥 Installing backend dependencies...');

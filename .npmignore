@@ -1,0 +1,6 @@
+.github/
+.vscode/
+tests/
+test-app/
+my-fullstack-app/
+*.log

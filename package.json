@@ -1,4 +1,29 @@
 {
+  "name": "create-fullstack-app-cli",
+  "version": "1.0.0",
+  "description": "Create a production-ready fullstack monorepo with one command.",
+  "main": "cli/bin/bin.js",
+  "bin": {
+    "create-fullstack-app-cli": "cli/bin/bin.js"
+  },
+  "scripts": {
+    "start": "node cli/bin/bin.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/create-fullstack-app-cli.git"
+  },
+  "keywords": [
+    "cli",
+    "fullstack",
+    "react",
+    "nestjs",
+    "express",
+    "monorepo",
+    "generator"
+  ],
+  "author": "",
+  "license": "MIT",
   "dependencies": {
     "fs-extra": "^11.3.5",
     "inquirer": "^13.4.3"
