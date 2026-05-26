@@ -1,6 +1,6 @@
 <div align="center">
   
-# 🚀 Create Fullstack App CLI
+#  Create Fullstack App CLI
 
 **The ultimate tool to scaffold a production-ready, fullstack monorepo in seconds.**
 
@@ -16,7 +16,7 @@ Stop wasting time wiring up API endpoints, JWT authentication, and CORS. Start b
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
 - **Interactive Setup:** Answer a few prompts and get a fully configured workspace.
 - **Frontend Choices:** React (Vite) out-of-the-box (Angular coming soon).
@@ -27,7 +27,7 @@ Stop wasting time wiring up API endpoints, JWT authentication, and CORS. Start b
 
 ---
 
-## 📦 Quick Start
+##  Quick Start
 
 Run the following command in your terminal. You don't need to install anything globally!
 
@@ -47,7 +47,7 @@ That's it! The CLI will generate your project, link the apps, and install all de
 
 ---
 
-## 🏗️ Generated Workspace Structure
+##  Generated Workspace Structure
 
 Your newly generated monorepo will look like this:
 
@@ -72,7 +72,7 @@ my-awesome-app/
 
 ---
 
-## 🚀 How to Run Your Generated App
+##  How to Run Your Generated App
 
 After the CLI finishes, it takes just two commands to get everything running locally.
 
@@ -93,7 +93,7 @@ Your React app will immediately be able to communicate with your backend's authe
 
 ---
 
-## 🛣️ Roadmap
+##  Roadmap
 
 - [x] React & Vite integration
 - [x] NestJS Backend support
@@ -107,7 +107,7 @@ Your React app will immediately be able to communicate with your backend's authe
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions, issues, and feature requests are highly welcome! 
 
@@ -119,6 +119,6 @@ Contributions, issues, and feature requests are highly welcome!
 
 ---
 
-## 📝 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
